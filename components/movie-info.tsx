@@ -1,7 +1,7 @@
 import { API_URL } from "../app/(home)/page";
 import styles from '../styles/movie-info.module.css';
 
-async function fetchMovie(id: string) {
+export async function fetchMovie(id: string) {
     const res = await fetch(`${API_URL}/${id}`);
     return await res.json();
 }
@@ -17,7 +17,7 @@ export default async function MovieInfo({ id }: { id: string }) {
             />
             <div className={styles.info}>
                 <h1 className={styles.title}>{movie.title}</h1>
-                <h3>⭐️ {movie.vote_average.toFixed(1)}</h3>
+                <h3>⭐️ {movie.vote_average.toFixed()}</h3>
                 <p>{movie.overview}</p>
                 <a href={movie.homepage} target={"_blank"}>
                     Homepage &rarr;
